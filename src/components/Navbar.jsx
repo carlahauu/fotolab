@@ -1,7 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/Navbar.css'
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Navbar() {
+  const [mobileNav, setMobileNav] = useState(false)
+  const onHamburgerClick = () => {
+    if (!mobileNav) {
+      setMobileNav(true)
+    }
+    else {
+      setMobileNav(false)
+    }
+  }
   return (
     <div className='navbarContainer'>
         <div className="logo">
@@ -11,6 +21,16 @@ function Navbar() {
             <a>photo booth</a>
             <a>about</a>
             <a>contact</a>
+        </div>
+        <div className="mobileNav">
+          <GiHamburgerMenu onClick={onHamburgerClick} className='hamburger' />
+          {mobileNav && 
+            <div className="mobileNavItems">
+                <a>photo booth</a>
+                <a>about</a>
+                <a>contact</a>
+            </div>
+          }
         </div>
     </div>
   )

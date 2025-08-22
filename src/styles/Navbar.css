@@ -3,9 +3,10 @@
     width: 65vw;
     justify-content: space-between;
     background-color: #FDB5CF;
-    border-radius: 10em;
+    border-radius: 40px;
     padding-left: 3em;
     padding-right: 3em;
+    padding-bottom: 0.25em;
     vertical-align: center;
     position: fixed;
     left: 0;
@@ -26,4 +27,43 @@
     justify-content: space-between;
     padding: 23px 0;
     letter-spacing: 0.15em;
+}
+
+.mobileNav{
+    display: none;
+    bottom: 0;
+}
+
+@media screen and (max-width: 800px){
+    .navItems{
+        display: none;
+    }
+    .mobileNav{
+        display: flex;
+        flex-direction: column;
+    }
+    .hamburger{
+        font-size: 2rem;
+        margin-top: 18px;
+        left: 0;
+        margin-left: auto;
+    }
+    .hamburger:hover{
+        cursor: pointer;
+    }
+    .mobileNavItems{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: right;
+        background-color: #FDB5CF;
+        padding-top: 1em;
+        left: 0;
+        justify-content: center;
+        padding-bottom: 1.2em;
+    }
+    .mobileNavItems a{
+        font-size: 1.2rem;
+        width: 100%;
+    }
 }
