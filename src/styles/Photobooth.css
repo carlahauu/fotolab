@@ -1,0 +1,185 @@
+.photoboothContainer h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    margin-top: 4em;
+}
+
+.frameSelection img {
+    width: 10rem;
+}
+
+.photoStrip img{
+    width: 65%;
+}
+
+.frameSelection{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.photoStrip h3{
+    font-size: 1.5em;
+    margin-top: 5em;
+}
+
+.photoStrip button{
+    width: 10rem;
+    color: #D85F8B;
+    font-size: 1.2rem;
+    border-color: #FDB5CF;
+    border-width: 2px;
+    background-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+  
+
+.frameSelection button{
+    width: 10rem;
+    color: #D85F8B;
+    font-size: 1.5rem;
+    border-color: #FDB5CF;
+    border-width: 2px;
+    background-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    margin-top: 20px;
+    letter-spacing: 0.2rem;
+}
+
+.confirmBtn{
+    width: 10rem;
+    color: #D85F8B;
+    font-size: 1.5rem;
+    border-color: #FDB5CF;
+    border-width: 2px;
+    background-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    margin-top: 20px;
+    letter-spacing: 0.2rem;
+    margin-top: 2em;
+}
+
+.confirmBtn:hover{
+    cursor: pointer;
+    background-color: #fdb5cf34;
+}
+
+.confirmBtn:disabled {
+    background-color: #ccc; 
+    cursor: not-allowed;    
+    opacity: 0.4;           
+    color: black;
+    border-color: black;
+  }
+
+.frameSelection button:hover{
+    cursor: pointer;
+    background-color: #fdb5cf34;
+}
+
+.timer{
+    font-size: 2rem;
+    margin-top: -0.5em;
+}
+
+.prompt{
+    letter-spacing: 0.2em;
+    font-size: 1.2rem;
+    margin-top: 2em;
+}
+
+.photoCount{
+    letter-spacing: 0.2em;
+    font-size: 1.2rem;
+    margin-top: 1.5em;
+}
+
+.cameraBtnContainer{
+    place-items: center;
+    width: 89%;
+    position: absolute;
+    bottom: 1.5em; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.cameraBtn{
+    background-color: #FDB5CF;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 40px;
+    color: black;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    font-size: 2.2rem;
+}
+
+.capturedPhotos button{
+    width: fit-content;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color: none;
+    padding: 0;
+}
+
+.capturedPhotos img{
+    margin-bottom: -0.2em;
+    width: 30em;
+}
+
+.capturedPhotos {
+    height: 33em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    overflow-y: auto;
+    padding: 10px;
+    z-index: 2;
+}
+
+.cameraBtn:hover{
+    cursor: pointer;
+}
+
+.webcamContainer{
+    border-style: solid;
+    border-width: 2px;
+    position: relative; 
+}
+
+.photoStrip{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px){
+    .capturedPhotos {
+        height: 33em;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+    }
+    .photoStrip img{
+        width: 75%;
+    }
+}
+  

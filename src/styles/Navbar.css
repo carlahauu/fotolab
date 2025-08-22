@@ -1,0 +1,29 @@
+.navbarContainer{
+    display: flex;
+    width: 65vw;
+    justify-content: space-between;
+    background-color: #FDB5CF;
+    border-radius: 10em;
+    padding-left: 3em;
+    padding-right: 3em;
+    vertical-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.logo h1{
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+}
+
+.navItems{
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 23px 0;
+    letter-spacing: 0.15em;
+}
