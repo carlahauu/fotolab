@@ -7,9 +7,9 @@ function Footer() {
         <div className="footerItems">
             <a href='/privacy'>privacy</a>
             <a href='/terms'>terms</a>
-            <a>contact</a>
+            <a href='/contact'>contact</a>
         </div>
-        <p>made with love by <a>carla hau</a></p>
+        <p>made with love by <a href='https://www.carlahau.com'>carla hau</a></p>
     </div>
   )
 }

@@ -20,7 +20,7 @@ function Navbar() {
         <div className="navItems">
             <a href='/photobooth'>photo booth</a>
             <a>about</a>
-            <a>contact</a>
+            <a href='/contact'>contact</a>
         </div>
         <div className="mobileNav">
           <GiHamburgerMenu onClick={onHamburgerClick} className='hamburger' />
@@ -28,7 +28,7 @@ function Navbar() {
             <div className="mobileNavItems">
                 <a href='/photobooth'>photo booth</a>
                 <a>about</a>
-                <a>contact</a>
+                <a href='/contact'>contact</a>
             </div>
           }
         </div>
