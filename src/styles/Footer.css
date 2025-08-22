@@ -1,0 +1,17 @@
+.footerItems{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.footerItems a{
+    font-size: 1.3rem;
+}
+
+.footerContainer{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-top: 6em;
+}

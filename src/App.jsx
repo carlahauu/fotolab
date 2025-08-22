@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing";
 import Photobooth from "./pages/Photobooth";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/photobooth" element={<Photobooth />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
     </>
