@@ -15,7 +15,7 @@ function Navbar() {
   return (
     <div className='navbarContainer'>
         <div className="logo">
-            <h1>fotolab</h1>
+            <a href='/'><h1>fotolab</h1></a>
         </div>
         <div className="navItems">
             <a>photo booth</a>
@@ -26,7 +26,7 @@ function Navbar() {
           <GiHamburgerMenu onClick={onHamburgerClick} className='hamburger' />
           {mobileNav && 
             <div className="mobileNavItems">
-                <a>photo booth</a>
+                <a href='/photobooth'>photo booth</a>
                 <a>about</a>
                 <a>contact</a>
             </div>

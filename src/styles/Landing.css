@@ -1,0 +1,108 @@
+.landingContainer{
+    margin-top: 10em;
+    width: 70vw;
+}
+
+.hero h1{
+    font-weight: 500;
+    line-height: 1.3em;
+}
+
+.cta h1{
+    font-weight: 500;
+    line-height: 1.3em;
+    font-size: 1.8rem;
+}
+
+.steps h1{
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #FA8EB5;
+}
+
+.step {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+    text-align: left;
+    align-items: flex-start; 
+    margin-top: -1.5em;
+}
+
+.steps h1{
+    margin-bottom: 2em;
+}
+
+.steps{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4em;
+    padding: 70px 0;
+}
+
+.step h3{
+    color: #FA8EB5;
+    font-weight: 600;
+    font-size: 2em;
+    margin-top: 0.5em;
+}
+
+.step p{
+    font-size: 1.4rem;
+}
+
+.hero{
+    margin-bottom: 5em;
+}
+
+.hero p{
+    font-size: 1.2em;
+}
+
+.hero button{
+    background-color: #FDB5CF;
+    border-style: none;
+    border-radius: 40px;
+    color: black;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-size: 1.8rem;
+    margin-top: 0.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    width: 100%;
+}
+
+.cta button{
+    background-color: #FDB5CF;
+    border-style: none;
+    border-radius: 40px;
+    color: black;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-size: 1.6rem;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    width: 70%;
+}
+
+@media screen and (min-width: 1100px){
+    .hero h1{
+        font-weight: 500;
+        line-height: 1.3em;
+        font-size: 2.5em;
+    }
+
+    .landingContainer{
+        width: 40vw;
+    }
+    
+    .hero p{
+        font-size: 1.5em;
+    }
+
+    .hero button{
+        width: 70%;
+    }
+}

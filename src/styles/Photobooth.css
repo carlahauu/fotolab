@@ -176,7 +176,7 @@
     place-items: center;
 }
 
-@media screen and (min-width: 400px) and (max-width: 800px){
+@media screen and (max-width: 800px){
     .capturedPhotos {
         height: 33em;
         display: flex;
