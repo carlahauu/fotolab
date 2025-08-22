@@ -18,7 +18,7 @@ function Navbar() {
             <a href='/'><h1>fotolab</h1></a>
         </div>
         <div className="navItems">
-            <a>photo booth</a>
+            <a href='/photobooth'>photo booth</a>
             <a>about</a>
             <a>contact</a>
         </div>
