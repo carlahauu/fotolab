@@ -26,7 +26,8 @@ function Photobooth() {
     }, [webcamRef]);
 
     const frameSelection = (frame) => {
-        let selectedFrame = frame.replace("/", "").replace(".png", "");
+        let selectedFrame = frame.replace(".png", "");
+        selectedFrame = selectedFrame + "-2" + ".png"; 
         setFrameSelected(true);
         setFrame(selectedFrame);
     };
@@ -90,7 +91,7 @@ function Photobooth() {
           ctx.drawImage(img, offsetXRight + 75, y + offsetYRight, 348, 258);
         });
       
-        const frameImg = await loadImage(`/Classic Pink Photostrip.png`);
+        const frameImg = await loadImage(frame);
         ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
       
         const finalStrip = canvas.toDataURL("image/png");
