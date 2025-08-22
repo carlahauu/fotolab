@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing";
 import Photobooth from "./pages/Photobooth";
 import Footer from "./components/Footer";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/photobooth" element={<Photobooth />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
           <Footer />
         </div>

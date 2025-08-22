@@ -130,7 +130,7 @@ function Photobooth() {
         </>
       ) : (photoCount == 4 && !photoStrip) ? (
         <>
-          <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em"}}>
+          <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em", width: "70%"}}>
             select 4 photos for the photo strip!
           </p>
           <p style={{marginBottom: "2em", letterSpacing: "0.2em", fontSize: "1rem"}}>(scroll down to see all photos!)</p>
