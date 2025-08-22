@@ -79,6 +79,11 @@
     background-color: #fdb5cf34;
 }
 
+.photoStrip button:hover{
+    cursor: pointer;
+    background-color: #fdb5cf34;
+}
+
 .confirmBtn:disabled {
     background-color: #ccc; 
     cursor: not-allowed;    
