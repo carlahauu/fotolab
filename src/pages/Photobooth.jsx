@@ -204,15 +204,16 @@ function Photobooth() {
           <div className="webcamContainer">
             <Webcam
               ref={webcamRef}
+              screenshotFormat="image/png"
+              videoConstraints={{
+                width: 1280,
+                height: 720,
+                facingMode: "user"
+              }}
               style={{
                 width: "100%",
-                marginBottom: "-0.4rem",
-              }}
-              videoConstraints={{
-                width: 700, 
-                height: 450, 
-                aspectRatio: 14 / 9, 
-                facingMode: "user" 
+                height: "100%",
+                objectFit: "cover" 
               }}
             />
             <div className="cameraBtnContainer">
