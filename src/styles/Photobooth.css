@@ -228,8 +228,8 @@
 
 @media screen and (max-width: 600px){
     .webcamContainer {
-        width: 420px;
-        height: 270px; 
+        width: 350px;
+        height: 225px; 
         overflow: hidden;
         position: relative;
     }

@@ -9,7 +9,7 @@ import { IoMdCheckmark } from "react-icons/io";
 function Photobooth() {
     const [frameSelected, setFrameSelected] = useState(false);
     const [photoBoothStart, setPhotoBoothStart] = useState(false);
-    const [timer, setTimer] = useState(1);
+    const [timer, setTimer] = useState(8);
     const [photoCount, setPhotoCount] = useState(0);
     const maxPhotos = 8;
     const webcamRef = useRef(null);
@@ -51,7 +51,7 @@ function Photobooth() {
     const startPhotoBooth = () => {
         if (photoCount < maxPhotos) {
         setPhotoBoothStart(true);
-        setTimer(1);
+        setTimer(5);
         }
     };
 
@@ -72,7 +72,7 @@ function Photobooth() {
         capture();
         setPhotoCount((prev) => prev + 1);
         setPhotoBoothStart(false);
-        setTimer(1);
+        setTimer(5);
         }
     }, [timer, photoCount, capture]);
 
@@ -154,9 +154,9 @@ function Photobooth() {
           ))}
         </div>
         </>
-      ) : (photoCount == 4 && !photoStrip) ? (
+      ) : (photoCount == 8 && !photoStrip) ? (
         <>
-          <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em", width: "70%"}}>
+          <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em", width: "80%"}}>
             select 4 photos for the photo strip!
           </p>
           <p style={{marginBottom: "2em", letterSpacing: "0.2em", fontSize: "1rem"}}>(scroll down to see all photos!)</p>
