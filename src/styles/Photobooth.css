@@ -178,6 +178,23 @@
     width: 85%;
 }
 
+.webcamContainer {
+    width: 700px;
+    height: 450px; 
+    overflow: hidden;
+    position: relative;
+}
+  
+.webcamContainer video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%; 
+}
+
+
 .photoStrip{
     display: flex;
     flex-direction: column;
@@ -193,6 +210,30 @@
     }
     .photoStrip img{
         width: 75%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .webcamContainer {
+        width: 490px;
+        height: 315px; 
+        overflow: hidden;
+        position: relative;
+    }
+    .cameraBtn{
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .webcamContainer {
+        width: 420px;
+        height: 270px; 
+        overflow: hidden;
+        position: relative;
+    }
+    .cameraBtn{
+        font-size: 1.8rem;
     }
 }
   
