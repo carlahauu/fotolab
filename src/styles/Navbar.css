@@ -15,18 +15,24 @@
 }
 
 .logo h1{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 0.2em;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .navItems{
     width: 50%;
     display: flex;
-    gap: 10px;
-    justify-content: space-between;
+    gap: 30px;
     padding: 23px 0;
     letter-spacing: 0.15em;
+    justify-content: right;
 }
 
 .mobileNav{
@@ -43,8 +49,8 @@
         flex-direction: column;
     }
     .hamburger{
-        font-size: 2rem;
-        margin-top: 18px;
+        font-size: 1.8rem;
+        margin-top: 15px;
         left: 0;
         margin-left: auto;
     }

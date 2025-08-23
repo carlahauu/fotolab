@@ -19,7 +19,6 @@ function Navbar() {
         </div>
         <div className="navItems">
             <a href='/photobooth'>photo booth</a>
-            <a>about</a>
             <a href='/contact'>contact</a>
         </div>
         <div className="mobileNav">
@@ -27,7 +26,6 @@ function Navbar() {
           {mobileNav && 
             <div className="mobileNavItems">
                 <a href='/photobooth'>photo booth</a>
-                <a>about</a>
                 <a href='/contact'>contact</a>
             </div>
           }
