@@ -210,6 +210,7 @@ function Photobooth() {
                 height: 720,
                 facingMode: "user"
               }}
+              mirrored={true}
               style={{
                 width: "100%",
                 height: "100%",
