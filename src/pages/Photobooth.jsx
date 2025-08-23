@@ -19,11 +19,27 @@ function Photobooth() {
     const [selectedPhotos, setSelectedPhotos] = useState([]);
 
     const capture = useCallback(() => {
-        if (webcamRef.current) {
-        const imageSrc = webcamRef.current.getScreenshot();
-        setPhotos((prevPhotos) => [...prevPhotos, imageSrc]);
-        }
-    }, [webcamRef]);
+      if (!webcamRef.current) return;
+    
+      const src = webcamRef.current.getScreenshot();
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 350;  
+        canvas.height = 225; 
+        const ctx = canvas.getContext("2d");
+    
+        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+        const x = (img.width - canvas.width / scale) / 2;
+        const y = (img.height - canvas.height / scale) / 2;
+    
+        ctx.drawImage(img, x, y, canvas.width / scale, canvas.height / scale, 0, 0, canvas.width, canvas.height);
+    
+        const cropped = canvas.toDataURL("image/png");
+        setPhotos((prev) => [...prev, cropped]);
+      };
+    }, [webcamRef]);    
 
     const frameSelection = (frame) => {
         let selectedFrame = frame.replace(".png", "");
