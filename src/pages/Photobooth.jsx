@@ -80,15 +80,25 @@ function Photobooth() {
         const cellHeight = 225;
       
         imgs.forEach((img, i) => {
-          const y = i * 250;
+          var y = 0; 
+          if (i == 3){
+            y = (i * 250);
+          }
+          else if (i == 2){
+            y = (i * 250) + 5; 
+          }
+          else if (i == 1){
+            y = (i * 250) + 11;
+          }
+          else {
+            y = (i * 250) + 20; 
+          }
       
-          const offsetXLeft = (cellWidth - cellWidth) / 2;
-          const offsetYLeft = (cellHeight - cellHeight) / 2;
-          ctx.drawImage(img, offsetXLeft + 25, y + offsetYLeft, 348, 258);
+          ctx.drawImage(img, 25, y, 348, 225);
 
           const offsetXRight = cellWidth + (cellWidth - cellWidth) / 2;
           const offsetYRight = (cellHeight - cellHeight) / 2;
-          ctx.drawImage(img, offsetXRight + 75, y + offsetYRight, 348, 258);
+          ctx.drawImage(img, offsetXRight + 75, y + offsetYRight, 348, 225);
         });
       
         const frameImg = await loadImage(frame);
@@ -181,6 +191,12 @@ function Photobooth() {
               style={{
                 width: "100%",
                 marginBottom: "-0.4rem",
+              }}
+              videoConstraints={{
+                width: 700, 
+                height: 450, 
+                aspectRatio: 14 / 9, 
+                facingMode: "user" 
               }}
             />
             <div className="cameraBtnContainer">

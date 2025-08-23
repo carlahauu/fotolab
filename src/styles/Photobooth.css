@@ -175,6 +175,7 @@
     border-style: solid;
     border-width: 2px;
     position: relative; 
+    width: 85%;
 }
 
 .photoStrip{
