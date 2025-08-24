@@ -80,79 +80,6 @@ function Photobooth() {
     }, [timer, photoCount, capture]);
 
     async function uploadPhotos(frame, selectedPhotos) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 800;
-        canvas.height = 1200;
-        const ctx = canvas.getContext("2d");
-      
-        const loadImage = (src) =>
-          new Promise((resolve) => {
-            const img = new Image();
-            img.crossOrigin = "anonymous";
-            img.src = src;
-            img.onload = () => resolve(img);
-          });
-      
-        const imgs = await Promise.all(selectedPhotos.map(loadImage));
-      
-        const cellWidth = 350;
-        const cellHeight = 225;
-      
-        imgs.forEach((img, i) => {
-          var y = 0; 
-          if (i == 3){
-            y = (i * 250);
-          }
-          else if (i == 2){
-            y = (i * 250) + 5; 
-          }
-          else if (i == 1){
-            y = (i * 250) + 11;
-          }
-          else {
-            y = (i * 250) + 20; 
-          }
-      
-          ctx.drawImage(img, 25, y, 348, 225);
-
-          const offsetXRight = cellWidth + (cellWidth - cellWidth) / 2;
-          const offsetYRight = (cellHeight - cellHeight) / 2;
-          ctx.drawImage(img, offsetXRight + 75, y + offsetYRight, 348, 225);
-        });
-      
-        const frameImg = await loadImage(frame);
-        ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
-
-        const currentYear = new Date().toLocaleDateString("en-US", {
-          year: "numeric"
-        });
-
-        const currentMonth = new Date().toLocaleDateString("en-US", {
-          month: "numeric"
-        });
-
-        const currentDay = new Date().toLocaleDateString("en-US", {
-          day: "numeric",
-        });
-
-        const currentDate =  currentMonth + '.' + currentDay + '.' + currentYear; 
-        
-        ctx.font = "20px Arial"; 
-        ctx.fillStyle = "#000";  
-        ctx.textAlign = "center";
-        ctx.fillText(currentDate, canvas.width / 4, canvas.height - 20);
-        ctx.fillText(currentDate, 3 * (canvas.width / 4), canvas.height - 20);
-      
-        const finalStrip = canvas.toDataURL("image/png");
-        setPhotoStrip(finalStrip);
-    }
-
-    const handleDownload = () => {
-      const link = document.createElement("a");
-      link.href = photoStrip; 
-      link.download = "photostrip.png"; 
-      link.click();
-
       const supabase = createClient(supabaseUrl, supabaseKey);
 
       const fetchCount = async (frameName) => {
@@ -184,6 +111,79 @@ function Photobooth() {
       };
 
       updateCount(frame)
+
+      const canvas = document.createElement("canvas");
+      canvas.width = 800;
+      canvas.height = 1200;
+      const ctx = canvas.getContext("2d");
+    
+      const loadImage = (src) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          img.crossOrigin = "anonymous";
+          img.src = src;
+          img.onload = () => resolve(img);
+        });
+    
+      const imgs = await Promise.all(selectedPhotos.map(loadImage));
+    
+      const cellWidth = 350;
+      const cellHeight = 225;
+    
+      imgs.forEach((img, i) => {
+        var y = 0; 
+        if (i == 3){
+          y = (i * 250);
+        }
+        else if (i == 2){
+          y = (i * 250) + 5; 
+        }
+        else if (i == 1){
+          y = (i * 250) + 11;
+        }
+        else {
+          y = (i * 250) + 20; 
+        }
+    
+        ctx.drawImage(img, 25, y, 348, 225);
+
+        const offsetXRight = cellWidth + (cellWidth - cellWidth) / 2;
+        const offsetYRight = (cellHeight - cellHeight) / 2;
+        ctx.drawImage(img, offsetXRight + 75, y + offsetYRight, 348, 225);
+      });
+    
+      const frameImg = await loadImage(frame);
+      ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+
+      const currentYear = new Date().toLocaleDateString("en-US", {
+        year: "numeric"
+      });
+
+      const currentMonth = new Date().toLocaleDateString("en-US", {
+        month: "numeric"
+      });
+
+      const currentDay = new Date().toLocaleDateString("en-US", {
+        day: "numeric",
+      });
+
+      const currentDate =  currentMonth + '.' + currentDay + '.' + currentYear; 
+      
+      ctx.font = "20px Arial"; 
+      ctx.fillStyle = "#000";  
+      ctx.textAlign = "center";
+      ctx.fillText(currentDate, canvas.width / 4, canvas.height - 20);
+      ctx.fillText(currentDate, 3 * (canvas.width / 4), canvas.height - 20);
+    
+      const finalStrip = canvas.toDataURL("image/png");
+      setPhotoStrip(finalStrip);
+    }
+
+    const handleDownload = () => {
+      const link = document.createElement("a");
+      link.href = photoStrip; 
+      link.download = "photostrip.png"; 
+      link.click();
     };    
 
   return (
@@ -207,7 +207,7 @@ function Photobooth() {
           ))}
         </div>
         </>
-      ) : (photoCount == 4 && !photoStrip) ? (
+      ) : (photoCount == 8 && !photoStrip) ? (
         <>
           <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em", width: "80%"}}>
             select 4 photos for the photo strip!
