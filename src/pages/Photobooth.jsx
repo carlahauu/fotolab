@@ -86,7 +86,7 @@ function Photobooth() {
         const { data, error } = await supabase
           .from('fotolab') 
           .select('count')
-          .match({ id: 1, name: frameName })
+          .match({ name: frameName })
           .single()
       
         if (error) {
