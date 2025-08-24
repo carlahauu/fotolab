@@ -5,6 +5,7 @@ import Webcam from "react-webcam";
 import { IoCameraOutline } from "react-icons/io5";
 import axios from "axios";
 import { IoMdCheckmark } from "react-icons/io";
+import { createClient } from '@supabase/supabase-js';
 
 function Photobooth() {
     const [frameSelected, setFrameSelected] = useState(false);
@@ -17,6 +18,8 @@ function Photobooth() {
     const [photoStrip, setPhotoStrip] = useState(null);
     const [frame, setFrame] = useState("");
     const [selectedPhotos, setSelectedPhotos] = useState([]);
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
     const capture = useCallback(() => {
       if (!webcamRef.current) return;
@@ -124,21 +127,51 @@ function Photobooth() {
         setPhotoStrip(finalStrip);
     }
 
+    const handleDownload = () => {
+      const link = document.createElement("a");
+      link.href = photoStrip; 
+      link.download = "photostrip.png"; 
+      link.click();
+
+      const supabase = createClient(supabaseUrl, supabaseKey);
+
+      const fetchCount = async (frameName) => {
+        const { data, error } = await supabase
+          .from('fotolab') 
+          .select('count')
+          .match({ id: 1, name: frameName })
+          .single()
+      
+        if (error) {
+          console.error("Error fetching count:", error);
+          return null;
+        }
+      
+        return data.count;
+      };
+
+      const updateCount = async (frameName) => {
+        const count = await fetchCount(frameName); 
+        const { data, error } = await supabase
+          .from('fotolab') 
+          .update({ count: count + 1})
+          .eq('name', frameName)
+          .select('*')
+        
+        if (error){
+          console.error("Error updating count: ", error)
+        }
+      };
+
+      updateCount(frame)
+    };    
+
   return (
     <div className="photoboothContainer">
       {photoStrip && 
         <div className="photoStrip">
           <h3>thanks for using fotolab!</h3>
-          <button
-            onClick={() => {
-              const link = document.createElement("a");
-              link.href = photoStrip; 
-              link.download = "photostrip.png"; 
-              link.click(); 
-            }}
-          >
-            Download
-          </button>
+          <button onClick={handleDownload}>Download</button>
           <img src={photoStrip} alt="Photo strip result" />
         </div>
       }
