@@ -122,6 +122,26 @@ function Photobooth() {
       
         const frameImg = await loadImage(frame);
         ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+
+        const currentYear = new Date().toLocaleDateString("en-US", {
+          year: "numeric"
+        });
+
+        const currentMonth = new Date().toLocaleDateString("en-US", {
+          month: "numeric"
+        });
+
+        const currentDay = new Date().toLocaleDateString("en-US", {
+          day: "numeric",
+        });
+
+        const currentDate =  currentMonth + '.' + currentDay + '.' + currentYear; 
+        
+        ctx.font = "20px Arial"; 
+        ctx.fillStyle = "#000";  
+        ctx.textAlign = "center";
+        ctx.fillText(currentDate, canvas.width / 4, canvas.height - 20);
+        ctx.fillText(currentDate, 3 * (canvas.width / 4), canvas.height - 20);
       
         const finalStrip = canvas.toDataURL("image/png");
         setPhotoStrip(finalStrip);
@@ -187,7 +207,7 @@ function Photobooth() {
           ))}
         </div>
         </>
-      ) : (photoCount == 8 && !photoStrip) ? (
+      ) : (photoCount == 4 && !photoStrip) ? (
         <>
           <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em", width: "80%"}}>
             select 4 photos for the photo strip!
