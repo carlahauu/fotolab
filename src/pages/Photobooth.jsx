@@ -88,7 +88,7 @@ function Photobooth() {
           .select('count')
           .match({ name: frameName })
           .single()
-      
+
         if (error) {
           console.error("Error fetching count:", error);
           return null;
@@ -243,7 +243,7 @@ function Photobooth() {
               );
             })}
           </div>
-          <button className="confirmBtn" disabled={selectedPhotos.length !== 4} onClick={() => uploadPhotos(frame, photos)}>confirm</button>
+          <button className="confirmBtn" disabled={selectedPhotos.length !== 4} onClick={() => uploadPhotos(frame, selectedPhotos)}>confirm</button>
         </>
       ) : (
         !photoStrip ? (
