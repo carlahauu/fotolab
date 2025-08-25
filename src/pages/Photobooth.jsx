@@ -18,6 +18,9 @@ function Photobooth() {
     const [photoStrip, setPhotoStrip] = useState(null);
     const [frame, setFrame] = useState("");
     const [selectedPhotos, setSelectedPhotos] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(""); 
+    const [categorySelected, setCategorySelected] = useState(false)
+
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
     const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
@@ -186,6 +189,16 @@ function Photobooth() {
       link.click();
     };    
 
+    const handleCategorySelection = (category) =>{
+      setCategorySelected(true)
+      setSelectedCategory(category)
+    }
+
+    const handleReselectCategory = () => {
+      setCategorySelected(false)
+      setSelectedCategory("")
+    }
+
   return (
     <div className="photoboothContainer">
       {photoStrip && 
@@ -199,15 +212,22 @@ function Photobooth() {
         </div>
       }
       {!frameSelected && <h3>select a frame!</h3>}
+      {(!frameSelected && categorySelected) && <a onClick={handleReselectCategory}>click to select another collection.</a>}
       {(!frameSelected && !photoStrip) ? (
         <>
         <div className="frameSelection">
-          {frames.classics.map((frame, index) => (
-            <div key={index} className="frame">
-              <img src={frame} alt={`frame ${index}`} />
-              <button onClick={() => frameSelection(frame)}>select</button>
-            </div>
-          ))}
+        {!categorySelected && 
+          <div className="frameCollections">
+            <button className="frameCollection" onClick={() => handleCategorySelection("classic")}>Classic Frames</button>
+            {/* <button style={{backgroundImage: `url("/vite.svg")`}} className="frameCollection" onClick={() => handleCategorySelection("classic")}>UCR Events 2025</button> */}
+          </div>
+        }
+        {selectedCategory === "classic" && frames.classics.map((frame, index) => (
+          <div key={index} className="frame">
+            <img src={frame} alt={`frame ${index}`} />
+            <button className="selectButton" onClick={() => frameSelection(frame)}>select</button>
+          </div>
+        ))}
         </div>
         </>
       ) : (photoCount == 8 && !photoStrip) ? (
