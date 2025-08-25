@@ -191,7 +191,10 @@ function Photobooth() {
       {photoStrip && 
         <div className="photoStrip">
           <h3>thanks for using fotolab!</h3>
-          <button onClick={handleDownload}>Download</button>
+          <div className="photoStripButtons">
+            {/* <button onClick={() => window.print()}>Print</button> */}
+            <button onClick={handleDownload}>Download</button>
+          </div>
           <img src={photoStrip} alt="Photo strip result" />
         </div>
       }
@@ -208,7 +211,7 @@ function Photobooth() {
         </div>
         </>
       ) : (photoCount == 8 && !photoStrip) ? (
-        <>
+        <div className="selectPhotoContainer">
           <p style={{ letterSpacing: "0.2em", fontSize: "1.5rem", marginTop: "4em", width: "80%"}}>
             select 4 photos for the photo strip!
           </p>
@@ -244,7 +247,7 @@ function Photobooth() {
             })}
           </div>
           <button className="confirmBtn" disabled={selectedPhotos.length !== 4} onClick={() => uploadPhotos(frame, selectedPhotos)}>confirm</button>
-        </>
+        </div>
       ) : (
         !photoStrip ? (
         <>

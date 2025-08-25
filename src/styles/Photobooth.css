@@ -52,7 +52,12 @@
     padding-left: 1em;
     padding-right: 1em;
 }
-  
+
+.photoStripButtons{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
 
 .frameSelection button{
     width: 10rem;
@@ -157,14 +162,20 @@
     width: 30em;
 }
 
+.selectPhotoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    width: 100%;
+}
+
 .capturedPhotos {
-    height: 30em;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    overflow-y: auto;
     padding: 10px;
-    z-index: 2;
 }
 
 .cameraBtn:hover{
@@ -204,10 +215,12 @@
 
 @media screen and (max-width: 800px){
     .capturedPhotos {
-        height: 33em;
         display: flex;
         flex-direction: column;
         place-items: center;
+    }
+    .selectPhotoContainer{
+        align-items: center;
     }
     .photoStrip img{
         width: 75%;
@@ -237,4 +250,3 @@
         font-size: 1.8rem;
     }
 }
-  
