@@ -1,0 +1,83 @@
+.contactContainer h1{
+    margin-bottom: -0.5em;
+}
+
+.contactContainer p{
+    font-size: 20px;
+}
+
+.contactContainer{
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.contactContainer input{
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-style: none;
+}
+
+.contactContainer form {
+    display: flex;
+    flex-direction: column;
+    height: 70%; 
+    justify-content: space-between;
+    align-items: left;
+}
+
+.contactContainer input,
+.contactContainer textarea {
+    width: 95%;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    border: none;
+    margin-top: 10px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.contactContainer textarea {
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    margin-left: 0; 
+    height: 10em;
+}
+
+.message{
+    width: max-content;
+}
+
+.contactContainer button{
+    width: 95%;
+    background-color: #FDB5CF;
+    border-style: none;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-top: 1em;
+    font-size: 20px;
+    color: #202020;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.contactContainer button:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1100px){
+    .contactContainer{
+        width: 75vw
+    }
+}
