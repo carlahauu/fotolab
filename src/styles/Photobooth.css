@@ -242,6 +242,9 @@
     place-items: center;
 }
 
+.flipCamBtn{
+    display: none;
+}
 @media screen and (max-width: 800px){
     .capturedPhotos {
         display: flex;
@@ -277,5 +280,8 @@
     }
     .cameraBtn{
         font-size: 1.8rem;
+    }
+    .flipCamBtn{
+        display: block;
     }
 }

@@ -293,7 +293,7 @@ function Photobooth() {
           {photoBoothStart ? (
             <p className="timer">{photoBoothStart ? timer + "s" : "8s"}</p>
           ) : (
-            <a onClick={handleFlipCamera}>click to flip camera!</a>
+            <a className="flipCamBtn" onClick={handleFlipCamera}>click to flip camera!</a>
           )}
 
           <div className="webcamContainer">
