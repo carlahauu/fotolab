@@ -86,35 +86,10 @@ function Photobooth() {
     async function uploadPhotos(frame, selectedPhotos) {
       const supabase = createClient(supabaseUrl, supabaseKey);
 
-      const fetchCount = async (frameName) => {
-        const { data, error } = await supabase
-          .from('fotolab') 
-          .select('count')
-          .match({ name: frameName })
-          .single()
-
-        if (error) {
-          console.error("Error fetching count:", error);
-          return null;
-        }
-      
-        return data.count;
-      };
-
-      const updateCount = async (frameName) => {
-        const count = await fetchCount(frameName); 
-        const { data, error } = await supabase
-          .from('fotolab') 
-          .update({ count: count + 1})
-          .eq('name', frameName)
-          .select('*')
-        
-        if (error){
-          console.error("Error updating count: ", error)
-        }
-      };
-
-      updateCount(frame)
+      const { error: rpcError } = await supabase.rpc('increment_click', { frame_name: frame });
+      if (rpcError) {
+        console.error('Error incrementing count via RPC:', rpcError);
+      }
 
       const canvas = document.createElement("canvas");
       canvas.width = 800;
