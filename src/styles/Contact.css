@@ -2,8 +2,12 @@
     margin-bottom: -0.5em;
 }
 
+.contactContainer{
+    margin-top: 6em;
+}
+
 .contactContainer p{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .contactContainer{
@@ -34,7 +38,7 @@
 
 .contactContainer input,
 .contactContainer textarea {
-    width: 95%;
+    width: 100%;
     box-sizing: border-box;
     background-color: white;
     color: black;
@@ -60,7 +64,7 @@
 }
 
 .contactContainer button{
-    width: 95%;
+    width: 100;
     background-color: #FDB5CF;
     border-style: none;
     border-radius: 20px;
