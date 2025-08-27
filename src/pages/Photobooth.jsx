@@ -219,10 +219,16 @@ function Photobooth() {
         {!categorySelected && 
           <div className="frameCollections">
             <button className="frameCollection" onClick={() => handleCategorySelection("classic")}>Classic Frames</button>
-            {/* <button style={{backgroundImage: `url("/vite.svg")`}} className="frameCollection" onClick={() => handleCategorySelection("classic")}>UCR Events 2025</button> */}
+            <button style={{borderColor: "#AD7912", backgroundImage: `url("/Summer Olympics Frame Collection.png")`}} className="frameCollection" onClick={() => handleCategorySelection("key_summer_olympics_2025")}></button>
           </div>
         }
         {selectedCategory === "classic" && frames.classics.map((frame, index) => (
+          <div key={index} className="frame">
+            <img src={frame} alt={`frame ${index}`} />
+            <button className="selectButton" onClick={() => frameSelection(frame)}>select</button>
+          </div>
+        ))}
+        {selectedCategory === "key_summer_olympics_2025" && frames.key_summer_olympics_2025.map((frame, index) => (
           <div key={index} className="frame">
             <img src={frame} alt={`frame ${index}`} />
             <button className="selectButton" onClick={() => frameSelection(frame)}>select</button>
