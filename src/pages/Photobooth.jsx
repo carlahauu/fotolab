@@ -20,6 +20,7 @@ function Photobooth() {
     const [selectedPhotos, setSelectedPhotos] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(""); 
     const [categorySelected, setCategorySelected] = useState(false)
+    const [frontFacing, setFrontFacing] = useState(true)
 
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
     const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -199,6 +200,15 @@ function Photobooth() {
       setSelectedCategory("")
     }
 
+    const handleFlipCamera = () => {
+      if (frontFacing){
+        setFrontFacing(false)
+      }
+      else{
+        setFrontFacing(true)
+      }
+    }
+
   return (
     <div className="photoboothContainer">
       {photoStrip && 
@@ -212,7 +222,7 @@ function Photobooth() {
         </div>
       }
       {!frameSelected && <h3>select a frame!</h3>}
-      {(!frameSelected && categorySelected) && <a onClick={handleReselectCategory}>click to select another collection.</a>}
+      {(!frameSelected && categorySelected) && <a onClick={handleReselectCategory}>click to go back and select another collection.</a>}
       {(!frameSelected && !photoStrip) ? (
         <>
         <div className="frameSelection">
@@ -280,10 +290,14 @@ function Photobooth() {
           <p className="prompt" style={{marginTop: "5em"}}>
             {!photoBoothStart ? "click the camera icon!" : "smile!"}
           </p>
-          {photoBoothStart && (
+          {photoBoothStart ? (
             <p className="timer">{photoBoothStart ? timer + "s" : "8s"}</p>
+          ) : (
+            <a onClick={handleFlipCamera}>click to flip camera!</a>
           )}
+
           <div className="webcamContainer">
+            {frontFacing ? (
             <Webcam
               ref={webcamRef}
               screenshotFormat="image/png"
@@ -299,6 +313,23 @@ function Photobooth() {
                 objectFit: "cover" 
               }}
             />
+            ) : (
+              <Webcam
+                ref={webcamRef}
+                screenshotFormat="image/png"
+                videoConstraints={{
+                  width: 1280,
+                  height: 720,
+                  facingMode: "environment"
+                }}
+                mirrored={true}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover" 
+                }}
+              />
+            )}
             <div className="cameraBtnContainer">
               <button onClick={startPhotoBooth} className="cameraBtn">
                 <IoCameraOutline />
