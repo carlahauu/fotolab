@@ -20,6 +20,7 @@ To run the project, you need a .env file in the root of your project with the fo
 ```
 VITE_SUPABASE_URL=your-supabase-project-url
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+VITE_WEBFORM_EMAIL_API_KEY=your-web3forms-email-api-key
 ```
 These variables are required for the frontend to connect to Supabase.
 Make sure not to commit your .env file.
