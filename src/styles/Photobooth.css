@@ -131,16 +131,19 @@
     opacity: 0.4;           
     color: black;
     border-color: black;
-  }
+}
+
+.cameraBtn:disabled{
+    background-color: #ccc; 
+    cursor: not-allowed;    
+    opacity: 0.4;           
+    color: black;
+    border-color: black;
+}
 
 .selectButton:hover{
     cursor: pointer;
     background-color: #fdb5cf34;
-}
-
-.timer{
-    font-size: 2rem;
-    margin-top: -0.5em;
 }
 
 .prompt{
@@ -216,6 +219,19 @@
     border-width: 2px;
     position: relative; 
     width: 85%;
+}
+
+.timer{
+    position: absolute;
+    top: 10%;
+    margin-top: -0.5em;
+    right: 0;
+    transform: translateX(-50%);
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    z-index: 10;
 }
 
 .webcamContainer {

@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState, useEffect } from "react";
+import { useReactToPrint } from 'react-to-print';
 import "../styles/Photobooth.css";
 import frames from "../frames.json";
 import Webcam from "react-webcam";
@@ -190,7 +191,7 @@ function Photobooth() {
         <div className="photoStrip">
           <h3>thanks for using fotolab!</h3>
           <div className="photoStripButtons">
-            {/* <button onClick={() => window.print()}>Print</button> */}
+            {/* <button>Print</button> */}
             <button onClick={handleDownload}>Download</button>
           </div>
           <img src={photoStrip} alt="Photo strip result" />
@@ -265,13 +266,10 @@ function Photobooth() {
           <p className="prompt" style={{marginTop: "5em"}}>
             {!photoBoothStart ? "click the camera icon!" : "smile!"}
           </p>
-          {photoBoothStart ? (
-            <p className="timer">{photoBoothStart ? timer + "s" : "8s"}</p>
-          ) : (
-            <a className="flipCamBtn" onClick={handleFlipCamera}>click to flip camera!</a>
-          )}
+          {!photoBoothStart && <a className="flipCamBtn" onClick={handleFlipCamera}>click to flip camera!</a>}
 
           <div className="webcamContainer">
+            <p className="timer">{photoBoothStart ? timer + "s" : "5s"}</p>
             {frontFacing ? (
             <Webcam
               ref={webcamRef}
@@ -306,7 +304,7 @@ function Photobooth() {
               />
             )}
             <div className="cameraBtnContainer">
-              <button onClick={startPhotoBooth} className="cameraBtn">
+              <button disabled={photoBoothStart} onClick={startPhotoBooth} className="cameraBtn">
                 <IoCameraOutline />
               </button>
             </div>
