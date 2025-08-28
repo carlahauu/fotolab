@@ -1,0 +1,20 @@
+.privacyBannerContainer{
+    margin-top: -2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.privacyBannerContainer a{
+    color: #e97ea6;
+    font-weight: bold;
+}
+
+.privacyBannerContainer button{
+    color: black;
+    font-size: 1.5em;
+    line-height: 0.5em;
+    right: 0;
+}

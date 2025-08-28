@@ -8,11 +8,13 @@ import Footer from "./components/Footer";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
+import PrivacyBanner from "./components/PrivacyBanner";
 
 function App() {
   return (
     <>
       <div className="App">
+        <PrivacyBanner />
         <Navbar />
         <div className="appContent">
           <Routes>

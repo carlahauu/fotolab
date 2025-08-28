@@ -5,7 +5,7 @@ function Privacy() {
   return (
     <div className='privacyContainer'>
         <h1>Privacy Policy</h1>
-        <p>Effective Date: August 22, 2025</p>
+        <p>Effective Date: August 28, 2025</p>
         <p>Fotolab (“we”, “our”, or “us”) is a web application operated by Carla Hau. 
             This policy explains how Fotolab handles your information.
         </p>
@@ -13,6 +13,7 @@ function Privacy() {
         <p>Fotolab values your privacy.</p>
         <p>We do not use advertising networks or third-party analytics tools that collect personal data.</p>
         <p>We collect anonymous, aggregated usage metrics, such as total photo strips created in a day to improve our service. These statistics do not contain personal data and cannot be linked to individual users.</p>
+        <p>Photos taken with Fotolab are not uploaded or stored on our servers. They exist only temporarily in your browser while creating the photo strip.</p>
         <h4>Changes To This Privacy Policy</h4>
         <p>We may update our Privacy Policy from time to time.
             We will notify you of any changes by posting the new Privacy Policy on this page. 
