@@ -23,7 +23,7 @@ function PrivacyBanner() {
         <p>
             We've updated our <a href='/privacy'>Privacy Policy!</a>
         </p>
-        <button onClick={handleCloseBanner}><IoClose /></button>
+        {/* <button onClick={handleCloseBanner}><IoClose /></button> */}
     </div>
   )
 }

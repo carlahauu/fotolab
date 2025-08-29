@@ -204,17 +204,12 @@ function Photobooth() {
         <div className="frameSelection">
         {!categorySelected && 
           <div className="frameCollections">
-            <button className="frameCollection" onClick={() => handleCategorySelection("classic")}>Classic Frames</button>
+            <button className="frameCollection" onClick={() => handleCategorySelection("classics")}>Classic Frames</button>
             <button style={{borderColor: "#AD7912", backgroundImage: `url("/Summer Olympics Frame Collection.png")`}} className="frameCollection" onClick={() => handleCategorySelection("key_summer_olympics_2025")}></button>
+            <button style={{borderColor: "#6D85B7", backgroundImage: `url("/Tartan Seoul K-PLAY FEST Frame Collection.svg")`}} className="frameCollection" onClick={() => handleCategorySelection("ts_kplay_fest_2025")}></button>
           </div>
         }
-        {selectedCategory === "classic" && frames.classics.map((frame, index) => (
-          <div key={index} className="frame">
-            <img src={frame} alt={`frame ${index}`} />
-            <button className="selectButton" onClick={() => frameSelection(frame)}>select</button>
-          </div>
-        ))}
-        {selectedCategory === "key_summer_olympics_2025" && frames.key_summer_olympics_2025.map((frame, index) => (
+        {frames[selectedCategory]?.map((frame, index) => (
           <div key={index} className="frame">
             <img src={frame} alt={`frame ${index}`} />
             <button className="selectButton" onClick={() => frameSelection(frame)}>select</button>
